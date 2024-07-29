@@ -32,8 +32,8 @@
     }
 
     #qr-video {
-        width: 50vw;
-        height: 50vw; /* Make the video square */
+        width: 100vw;
+        height: 100vw; /* Make the video square */
         max-width: 400px;
         max-height: 400px; /* Limit the maximum size */
         object-fit: cover; /* Ensure the video fills the square */
@@ -60,13 +60,16 @@
 <body>
   <div>
     <img src="logo.png" id="logo" alt="شعارك">
-    <p> شركة ترو تك لحلول الانترنت</p>
+    <p>قارئ بطاقات الشبكة بالكاميرا من مكروتك الذهبي</p>
     <div id="qr-video-container">
       <video id="qr-video" playsinline autoplay></video>
+    </div>
     <div style="display: table-cell; padding:3px;">
-              <!-- <div class="btn" onclick="document.location = 'googlechrome://navigate?url=https://laksa19.github.io/myqr/';"></div> -->
-              <a class="btn" href="intent://laksa19.github.io/myqr#Intent;scheme=http;package=com.android.chrome;end"><i class="icon icon-chrome-1">&#xf268;</i> Open in Chrome</a>
-            </div>
+              <!-- <div class="button" onclick="document.location = 'googlechrome://navigate?url=https://truetech0.github.io/qr';"></div> -->
+              <a class="button" href="intent://truetech0.github.io/qr#Intent;scheme=http;package=com.android.chrome;end"><i class="icon icon-chrome-1">&#xf268;</i> Open in Chrome</a>
+    </div>
+    <p id="whatsapp-link" onclick="window.location.href='https://wa.me/+201507361369'">التواصل مع المطور: حسن سليمان</p>
+  </div>
 
   <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
   <script>

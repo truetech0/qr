@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ar">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ماسح رمز الاستجابة السريعة</title>
+  <style>
+
+    body {
+
+        text-align: center;
+
+        font-family: Arial, sans-serif;
+
+        direction: rtl; /* Right-to-left direction for Arabic */
+
+        height: 100vh; /* Make the body fill the viewport height */
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+    }
+
+
+
+    #qr-video-container {
+
+        position: relative;
+
+        margin-bottom: 20px;
+
+    }
+
+
+
+    #download-button {
+
+        background-color: #007bff;
+
+        color: #fff;
+
+        padding: 15px 30px;
+
+        border: none;
+
+        border-radius: 20px;
+
+        font-size: 16px;
+
+        cursor: pointer;
+
+    }
+
+
+
+    #qr-video {
+
+        width: 100vw;
+
+        height: 100vw; /* Make the video square */
+
+        max-width: 400px;
+
+        max-height: 400px; /* Limit the maximum size */
+
+        object-fit: cover; /* Ensure the video fills the square */
+
+        border-radius: 10px;
+
+    }
+
+
+
+    #logo {
+
+        width: 80px;
+
+        height: auto;
+
+    }
+
+
+
+
+
+    #whatsapp-link {
+
+      background-color: #0aad56;
+
+        color: #fff;
+
+        padding: 15px 30px;
+
+        border: none;
+
+        border-radius: 20px;
+
+        font-size: 16px;
+
+        cursor: pointer;
+
+    }
+
+</style>
+ </head>
+ <body>
+  <div>
+   <img src="/mikrotik/scannerlogo.png" id="logo" alt="شعارك">
+   <p>قارئ بطاقات الشبكة بالكاميرا من مكروتك الذهبي</p><a id="download-button" href="/mikrotik/cameraScanner.apk" download>تنزيل التطبيق على جهازك</a>
+  </div>
+  <div id="qr-video-container">
+   <video id="qr-video" playsinline autoplay></video>
+  </div>
+  <p id="whatsapp-link" onclick="window.location.href='https://wa.me/+963938707593'">التواصل مع المطور: خليل العجان</p>
+  <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+  <script>
+
+    const video = document.getElementById('qr-video');
+
+
+
+    // Create a new instance of Instascan
+
+    const scanner = new Instascan.Scanner({ video: video });
+
+
+
+    // Function to handle errors and switch to the other camera
+
+    function handleCameraError(error) {
+
+        console.error(error);
+
+        alert('خطأ في الوصول إلى الكاميرا: ' + error);
+
+    }
+
+
+
+    // Add listener for scanning QR code
+
+    scanner.addListener('scan', function(content) {
+
+        // When a QR code is scanned, redirect to the URL in the QR code
+
+        window.location.href = content;
+
+    });
+
+
+
+    // Start scanning with the default camera (cameras[1])
+
+    Instascan.Camera.getCameras().then(cameras => {
+
+        if (cameras.length > 0) {
+
+            scanner.start(cameras[1]);
+
+            video.style.transform = cameras[1].facing === 'user' ? 'scaleX(-1)' : 'none'; // Horizontally reverse the video if necessary
+
+        } else {
+
+            console.error('لم يتم العثور على كاميرات.');
+
+            alert('لم يتم العثور على كاميرات.');
+
+        }
+
+    }).catch(handleCameraError);
+
+</script>
+ </body>
+</html>

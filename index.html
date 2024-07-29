@@ -56,6 +56,7 @@
         margin-top: 10px;
     }
     #open-chrome-button {
+       text-decoration: none;
         background-color: #0398fc;
         color: #fff;
         padding: 15px 30px;
@@ -111,17 +112,6 @@
         }
     }).catch(handleCameraError);
 
-    // Add event listener to open in Chrome button
-    document.getElementById('open-chrome-button').addEventListener('click', function() {
-        var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-        if (isChrome) {
-            alert('أنت تستخدم بالفعل متصفح جوجل كروم.');
-        } else {
-            alert('يرجى فتح هذه الصفحة في متصفح جوجل كروم.');
-            // يمكنك توجيه المستخدم إلى تحميل متصفح جوجل كروم
-            // window.location.href = 'https://www.google.com/chrome/';
-        }
-    });
   </script>
 </body>
 </html>

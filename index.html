@@ -32,8 +32,8 @@
     }
 
     #qr-video {
-        width: 100vw;
-        height: 100vw; /* Make the video square */
+        width: 50vw;
+        height: 50vw; /* Make the video square */
         max-width: 400px;
         max-height: 400px; /* Limit the maximum size */
         object-fit: cover; /* Ensure the video fills the square */
@@ -45,8 +45,18 @@
         height: auto;
     }
 
-    #whatsapp-link, #open-chrome-button {
+    #whatsapp-link {
         background-color: #0aad56;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    #open-chrome-button {
+        background-color: #0398fc;
         color: #fff;
         padding: 15px 30px;
         border: none;
@@ -60,15 +70,15 @@
 <body>
   <div>
     <img src="logo.png" id="logo" alt="شعارك">
-    <p>قارئ بطاقات الشبكة بالكاميرا من مكروتك الذهبي</p>
+    <p>شركة ترو تك لحلول الانترنت</p>
     <div id="qr-video-container">
       <video id="qr-video" playsinline autoplay></video>
     </div>
     <div style="display: table-cell; padding:3px;">
               <!-- <div class="button" onclick="document.location = 'googlechrome://navigate?url=https://truetech0.github.io/qr';"></div> -->
-              <a class="button" href="intent://truetech0.github.io/qr#Intent;scheme=http;package=com.android.chrome;end"><i class="icon icon-chrome-1">&#xf268;</i> Open in Chrome</a>
+           <center><a id="open-chrome-button" href="intent://truetech0.github.io/qr#Intent;scheme=http;package=com.android.chrome;end"> اضغط هنا اذا لما يتم فتح الكاميرا </a> </center>
     </div>
-    <p id="whatsapp-link" onclick="window.location.href='https://wa.me/+201507361369'">التواصل مع المطور: حسن سليمان</p>
+    <p id="whatsapp-link" onclick="window.location.href='https://wa.me/+201555735406'">التواصل مع المطور: حسن سليمان</p>
   </div>
 
   <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>

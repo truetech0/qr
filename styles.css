@@ -1,0 +1,90 @@
+html, body {
+  height: 100%; /* Ensure the html and body elements fill the viewport height */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background-image: url('bg.jpeg'); 
+  text-align: center;
+  font-family: Arial, sans-serif;
+  direction: rtl; /* Right-to-left direction for Arabic */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space elements evenly, with space between them */
+  align-items: center;
+}
+
+#qr-video-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#download-button, #stop-camera-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#qr-video {
+  width: 50vw;
+  height: 50vw; /* Make the video square */
+  max-width: 400px;
+  max-height: 400px; /* Limit the maximum size */
+  object-fit: cover; /* Ensure the video fills the square */
+  border-radius: 10px;
+}
+
+#logo {
+  width: 80px;
+  height: auto;
+}
+
+#whatsapp-link {
+  background-color: #0aad56;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+#open-chrome-button {
+  text-decoration: none;
+  background-color: #0398fc;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.changing-color {
+  font-weight: bold;
+  font-size: 20px;
+  animation: colorChange 2s infinite;
+}
+
+@keyframes colorChange {
+  0% { color: red; }
+  25% { color: blue; }
+  50% { color: green; }
+  75% { color: purple; }
+  100% { color: red; }
+}

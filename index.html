@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QR Scanner</title>
   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <div class="content">
     <img src="icon.png" id="logo" alt="Logo">
-    <p class="changing-color">شركة ترو تك لحلول الانترنت</p>
+    <h1 class="changing-color">شركة ترو تك لحلول الانترنت</h1>
     <div id="qr-video-container">
       <video id="qr-video" playsinline autoplay></video>
     </div>
@@ -18,11 +19,16 @@
     </div>
     <button id="stop-camera-button">إيقاف الكاميرا</button>
   </div>
-  <div class="button-container">
-      <button id="stop-camera-button" onclick="window.location.href='tel:01555735406'">اتصل بنا</button>
-  </div>
+
+ 
     <div class="button-container">
-    <p id="whatsapp-link" onclick="window.location.href='https://wa.me/+201555735406'">التواصل مع المطور: حسن سليمان</p>
+        
+          <button id="call-button" onclick="window.location.href='tel:01555735406'">اتصل بنا 
+        <i class="fa fa-phone"></i></button>
+        <p id="whatsapp-link" onclick="window.location.href='https://wa.me/+201555735406'">
+            التواصل مع المطور
+            <i class="fab fa-whatsapp"></i>
+        </p>
   </div>
 
   <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>

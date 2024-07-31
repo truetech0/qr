@@ -8,8 +8,6 @@ html, body {
 
 body {
   background-image: url('bg.jpeg'); 
-  background-size: cover;
-  background-position: center;
   text-align: center;
   font-family: Arial, sans-serif;
   direction: rtl; /* Right-to-left direction for Arabic */
@@ -24,7 +22,18 @@ body {
   margin-bottom: 20px;
 }
 
-#download-button, #stop-camera-button {
+#call-button
+{
+  background-color: #000056;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+#stop-camera-button {
   background-color: #007bff;
   color: #fff;
   padding: 15px 30px;
@@ -45,7 +54,7 @@ body {
 }
 
 #logo {
-  width: 80px;
+  width: 100px;
   height: auto;
 }
 

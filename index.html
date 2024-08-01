@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QR Scanner</title>
   <link rel="stylesheet" href="styles.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <div class="content">
@@ -17,50 +17,44 @@
     <div style="display: table-cell; padding:3px;">
       <center><a id="open-chrome-button" href="intent://truetech0.github.io/qr#Intent;scheme=http;package=com.android.chrome;end"> اضغط هنا اذا لما يتم فتح الكاميرا </a></center>
     </div>
-    <button id="stop-camera-button">إيقاف الكاميرا</button>
   </div>
 
- 
-    <div class="button-container">
-        
-          <button id="call-button" onclick="window.location.href='tel:01555735406'">اتصل بنا 
-        <i class="fa fa-phone"></i></button>
-        <p id="whatsapp-link" onclick="window.location.href='https://wa.me/+201555735406'">
-            التواصل مع المطور
-            <i class="fab fa-whatsapp"></i>
-        </p>
+  <div class="button-container">
+    <button id="call-button" onclick="window.location.href='tel:01555735406'">اتصل بنا 
+    <i class="fa fa-phone"></i></button>
+    <p id="whatsapp-link" onclick="window.location.href='https://wa.me/+201555735406'">
+        التواصل مع المطور
+        <i class="fab fa-whatsapp"></i>
+    </p>
   </div>
-    <div class="copyright">
-        حقوق الطبع والنشر © 2024
-        <a href="https://wa.me/+963938707593" class="link">م/خليل العجان</a>
-        . جميع الحقوق محفوظة.
-    </div> 
+  <div class="copyright">
+      حقوق الطبع والنشر © 2024
+      <a href="https://wa.me/+963938707593" class="link">م/خليل العجان</a>
+      . جميع الحقوق محفوظة.
+  </div> 
   <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
   <script>
     const video = document.getElementById('qr-video');
+    const qrVideoContainer = document.getElementById('qr-video-container');
     let scanner;
 
-    // Create a new instance of Instascan
     function startScanner() {
       scanner = new Instascan.Scanner({ video: video });
 
-      // Function to handle errors and switch to the other camera
       function handleCameraError(error) {
         console.error(error);
         alert('خطأ في الوصول إلى الكاميرا: ' + error);
       }
 
-      // Add listener for scanning QR code
       scanner.addListener('scan', function(content) {
-        // When a QR code is scanned, redirect to the URL in the QR code
         window.location.href = content;
       });
 
-      // Start scanning with the default camera (cameras[1])
       Instascan.Camera.getCameras().then(cameras => {
         if (cameras.length > 0) {
           scanner.start(cameras[1]);
-          video.style.transform = cameras[1].facing === 'user' ? 'scaleX(-1)' : 'none'; // Horizontally reverse the video if necessary
+          qrVideoContainer.style.display = 'block'; // Show the video container
+          video.style.transform = cameras[1].facing === 'user' ? 'scaleX(-1)' : 'none';
         } else {
           console.error('لم يتم العثور على كاميرات.');
           alert('لم يتم العثور على كاميرات.');
@@ -72,12 +66,14 @@
       if (scanner) {
         scanner.stop();
       }
+      qrVideoContainer.style.display = 'none'; // Hide the video container
     }
 
-    document.getElementById('stop-camera-button').addEventListener('click', stopScanner);
-
     // Start the scanner when the page loads
-    startScanner();
+    window.addEventListener('load', startScanner);
+
+    // Initially hide the video container
+    qrVideoContainer.style.display = 'none';
   </script>
 </body>
 </html>

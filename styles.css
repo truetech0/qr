@@ -99,3 +99,13 @@ body {
   75% { color: purple; }
   100% { color: red; }
 }
+      .copyright {
+            margin-top: 20px;
+        }
+        .link {
+            color: blue;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
